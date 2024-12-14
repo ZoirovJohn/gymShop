@@ -1,6 +1,44 @@
 console.log("Train.ts ishga tushdi");
+console.log("--------------------------------------")
+// TASK I:
 
-// H2-TASK: 
+// Shunday function tuzing, u parametrdagi array ichida eng ko'p
+// takrorlangan raqamni topib qaytarsin.
+// MASALAN: majorityElement([1, 2, 3, 4, 5, 4, 3, 4]); return 4
+// Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p takrorlanganligi uchun 4'ni return qilmoqda.
+
+function majorityElement(arr: number[]) {
+    const sorted_arr = Array.from(new Set(arr)).sort((a, b) => a - b);
+    let max: number = 0;
+    let max_numname: string = "";
+    for (let num of sorted_arr) {
+        console.log(`${num} ni qanchaligini tekshirib, eng kop bosa chiqaramiz`);
+        const count = arr.filter((ele) => ele === num).length;
+        // console.log(count)
+        if (count > max) {
+            max_numname = num.toString();
+            max = count;
+            console.log(`Hozirgacha, soni eng kop raqam: ${max_numname} va u ${max} ta`);
+        }
+        // console.log("\n")
+    }
+    console.log("--------------------------------")
+    return `Eng kop takrorlangan raqam bu: ${max_numname}`;
+}
+
+console.log(majorityElement([1, 2, 1, 9, 3, 4, 5, 4, 8, 4, 2, 4, 1, 4, 3, 4]));
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4]));
+
+// ---------------------------------------------------
+/*// H-TASK
+
+function getPositive(arr: Array<number>) {
+    return arr.filter(ele => ele > 0 ? ele : null).join("")
+}
+
+console.log(getPositive([1, -4, 2]));
+*/
+/*// H2-TASK: 
 // Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
 // MASALAN: getDigits("m14i1t") return qiladi "141"
 
@@ -15,13 +53,4 @@ function getDigits(input: String) {
 }
 
 console.log(getDigits("m14i1t"));
-
-// ---------------------------------------------------
-/*// H-TASK
-
-function getPositive(arr: Array<number>) {
-    return arr.filter(ele => ele > 0 ? ele : null).join("")
-}
-
-console.log(getPositive([1, -4, 2]));
 */
