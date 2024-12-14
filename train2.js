@@ -45,13 +45,53 @@ console.log(friend(["Ryan", "Kieran", "Jason", "Yous"]))
 
 
 
-function largest(n, array) {
-    return array.sort((a, b) => a-b).slice(array.length-n)
-    
+// largest(2, [7,6,5,4,3,2,1])
+// => [6,7]
+
+// f
+
+
+// function houseNumbersSum(inputArray) {
+//     let result=0;
+//     for (let i of inputArray) {
+//         if(i === 0) { break; }
+//         result += i;
+//     }
+//     return result
+// }
+
+// console.log(houseNumbersSum([5, 1, 2, 3, 0, 1, 5, 0, 2]))
+// // [5, 1, 2, 3, 0, 1, 5, 0, 2]
+
+
+// solve("our code") = "edo cruo"
+// -- Normal reversal without spaces is "edocruo". 
+// -- However, there is a space at index 3, so the string becomes "edo cruo"
+
+// solve("your code rocks") = "skco redo cruoy". 
+// solve("codewars") = "srawedoc"
+
+
+
+
+function solve(str){
+    let ind_arr = [];
+    const splt_arr = str.split("");
+    for (let i=0; i < splt_arr.length; i++) {
+        if (splt_arr[i] === " ") {
+            ind_arr.push(i);
+        }
+    }
+    const reversed_arr = splt_arr.reverse();
+    const filtered_arr = reversed_arr.filter((ele) => ele !== " ")
+    for (let i of ind_arr) {
+       filtered_arr.splice(i, 0, " ")
+    }
+    const result = filtered_arr.join("")
+    return result
 }
 
-console.log(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
 
-
+console.log(solve("your code rocks"))
 
 
