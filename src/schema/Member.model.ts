@@ -54,5 +54,5 @@ const memberSchema = new Schema({
     { timestamps: true }      // updatedAt, createdAt
 );
 
-export default mongoose.model('Member', memberSchema);  
+export default mongoose.model('Member', memberSchema);
 // => memberSchema obj ni Member nomli schema modelga aylantrish

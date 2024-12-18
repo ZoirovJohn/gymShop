@@ -9,7 +9,7 @@ function friend(friends){
 
 console.log(friend(["Ryan", "Kieran", "Jason", "Yous"]))
 */
-
+/*
 // function findOdd(A) {
 //     const arr = Array.from(new Set(A));
 //     // console.log(arr);
@@ -74,24 +74,31 @@ console.log(friend(["Ryan", "Kieran", "Jason", "Yous"]))
 
 
 
-function solve(str){
-    let ind_arr = [];
-    const splt_arr = str.split("");
-    for (let i=0; i < splt_arr.length; i++) {
-        if (splt_arr[i] === " ") {
-            ind_arr.push(i);
-        }
-    }
-    const reversed_arr = splt_arr.reverse();
-    const filtered_arr = reversed_arr.filter((ele) => ele !== " ")
-    for (let i of ind_arr) {
-       filtered_arr.splice(i, 0, " ")
-    }
-    const result = filtered_arr.join("")
-    return result
+// function solve(str){
+//     let ind_arr = [];
+//     const splt_arr = str.split("");
+//     for (let i=0; i < splt_arr.length; i++) {
+//         if (splt_arr[i] === " ") {
+//             ind_arr.push(i);
+//         }
+//     }
+//     const reversed_arr = splt_arr.reverse();
+//     const filtered_arr = reversed_arr.filter((ele) => ele !== " ")
+//     for (let i of ind_arr) {
+//        filtered_arr.splice(i, 0, " ")
+//     }
+//     const result = filtered_arr.join("")
+//     return result
+// }
+
+
+// console.log(solve("your code rocks"))
+*/
+
+getFinalState = function(arr) {
+    return arr * 3;
 }
 
+const function_value = getFinalState(3)
 
-console.log(solve("your code rocks"))
-
-
+console.log(function_value);
