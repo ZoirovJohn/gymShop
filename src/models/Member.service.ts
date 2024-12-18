@@ -2,6 +2,7 @@ import MemberModel from "../schema/Member.model";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberType } from "../libs/enums/member.enum";
+import * as bcrypt from "bcryptjs";
 
 class MemberService {
     private readonly memberModel;
@@ -11,11 +12,16 @@ class MemberService {
     }
 
     public async processSignup(input: MemberInput): Promise<Member> {
-        // const exist = await this.memberModel
-        //     .findOne({ memberType: MemberType.RESTAURANT })
-        //     .exec(); // findone dan kn boshqa query quyishga ruxsat bermedi
-        // if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
-        // console.log("exist:", exist);
+        const exist = await this.memberModel
+            .findOne({ memberType: MemberType.RESTAURANT })
+            .exec(); // findone dan kn boshqa query quyishga ruxsat bermedi
+        if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
+        console.log("exist:", exist);
+
+        const salt = await bcrypt.genSalt();
+        console.log("salt:", salt)
+        input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
+
         try {
             const result = await this.memberModel.create(input); // db da inputni create qiladi
             // const tempResult = new this.memberModel(input);
@@ -35,8 +41,16 @@ class MemberService {
             )
             .exec();
         if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+        
+        // hash qiganda, qande salt bn hash qilingani yoziladi. Kn compareda usha salt orqali topvaladi original datani
+        const isMatch = await bcrypt.compare(
+            input.memberPassword,
+            member.memberPassword
+        );
+        // const isMatch = input.memberPassword === member.memberPassword;
+        
 
-        const isMatch = input.memberPassword === member.memberPassword;
+        
         if(!isMatch) throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD)
         
         return await this.memberModel.findById(member._id).exec();
