@@ -19,11 +19,12 @@ class MemberService {
         console.log("exist:", exist);
 
         const salt = await bcrypt.genSalt();
-        console.log("salt:", salt)
+        console.log("salt:", salt);
         input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
+        console.log("hash:", input.memberPassword);
 
         try {
-            const result = await this.memberModel.create(input); // db da inputni create qiladi
+            const result = await this.memberModel.create(input); // db da inputni create qiladi            
             // const tempResult = new this.memberModel(input);
             // const result = await tempResult.save(); //async method save 
             result.memberPassword = "";
