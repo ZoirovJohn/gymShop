@@ -12,7 +12,6 @@ class MemberService {
     }
 
     /** SPA */
-    
     public async signup(input: MemberInput): Promise<Member> {
         const salt = await bcrypt.genSalt();
         input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
@@ -47,7 +46,7 @@ class MemberService {
             throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD)
         }    
 
-        //lean() - db dan olingan mantiq qkncalik ozgartrish imkoniyatini beradi
+        //lean() - db dan olingan mantiq qkncalik ozgartrish imkoniyatini
         return await this.memberModel.findById(member._id).lean().exec();
     }
 
