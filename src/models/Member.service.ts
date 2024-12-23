@@ -8,7 +8,7 @@ class MemberService {
     private readonly memberModel;
 
     constructor() {
-        this.memberModel = MemberModel
+        this.memberModel = MemberModel;
     }
 
     /** SPA */
@@ -54,10 +54,10 @@ class MemberService {
 
     public async processSignup(input: MemberInput): Promise<Member> {
         const exist = await this.memberModel
-            .findOne({ memberType: MemberType.RESTAURANT })
+            .findOne({ memberType: "RESTAURANT" })
             .exec(); // findone dan kn boshqa query quyishga ruxsat bermedi
+        // console.log("exist:", exist);
         if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
-        console.log("exist:", exist);
 
         const salt = await bcrypt.genSalt();
         console.log("salt:", salt);
@@ -82,6 +82,7 @@ class MemberService {
                 { memberNick: 1, memberPassword: 1 }
             )
             .exec();
+        console.log("member:", member)
         if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
 
         // hash qiganda, qande salt bn hash qilingani yoziladi. Kn compareda usha salt orqali topvaladi original datani
