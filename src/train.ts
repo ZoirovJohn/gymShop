@@ -1,27 +1,16 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------")
-/*// J-TASK:
+/*//TASK K: 
 
-Shunday function tuzing, u string qabul qilsin.
-Va string ichidagi eng uzun so'zni qaytarsin.
+Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
+MASALAN: countVowels("string") return 1; */
 
-MASALAN: findLongestWord("I came from Uzbekistan!"); return "Uzbekistan!"
-
-Yuqoridagi text tarkibida 'Uzbekistan'
-eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda */
-
-function findLongestWord(str: string) {
-    let len = str.split(" ")[0].length;
-    return str.split(" ").filter((a) => {
-        if(a.length >= len){
-            len = a.length;
-            return len
-        }
-    }).pop()
+function countVowels(word: String): Number {
+    const vowels_arr = ["a", "e", "i", "o", "u"];
+    return word.split("").filter((v) => vowels_arr.includes(v)).length;
 }
-
-console.log(findLongestWord("I came a from Uzbekistan!"));
-
+// console.log(countVowels("stringqiiiqoefoiqwobaonfoaucoqanwaiefnawc"));
+console.log(countVowels("string"));
 // ---------------------------------------------------
 /*// H-TASK
 
@@ -77,3 +66,25 @@ function majorityElement(arr: number[]) {
 
 console.log(majorityElement([1, 2, 1, 9, 3, 4, 5, 4, 8, 4, 2, 4, 1, 4, 3, 4]));
 // console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); */
+/*// J-TASK:
+
+Shunday function tuzing, u string qabul qilsin.
+Va string ichidagi eng uzun so'zni qaytarsin.
+
+MASALAN: findLongestWord("I came from Uzbekistan!"); return "Uzbekistan!"
+
+Yuqoridagi text tarkibida 'Uzbekistan'
+eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda 
+
+function findLongestWord(str: string) {
+    let len = str.split(" ")[0].length;
+    return str.split(" ").filter((a) => {
+        if(a.length >= len){
+            len = a.length;
+            return len
+        }
+    }).pop()
+}
+
+console.log(findLongestWord("I came a from Uzbekistan!"));
+*/
