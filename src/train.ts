@@ -1,16 +1,18 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------")
-/*//TASK K: 
+/**L-TASK: 
 
-Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
-MASALAN: countVowels("string") return 1; */
-
-function countVowels(word: String): Number {
-    const vowels_arr = ["a", "e", "i", "o", "u"];
-    return word.split("").filter((v) => vowels_arr.includes(v)).length;
+Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc"; */
+function reverseSentence(sentence: string): string {
+    return sentence
+        .split(" ")
+        .map((word: string) => word.split("").reverse().join(""))
+        .join(" ");
 }
-// console.log(countVowels("stringqiiiqoefoiqwobaonfoaucoqanwaiefnawc"));
-console.log(countVowels("string"));
+
+console.log(reverseSentence("we like coding!"));
+
 // ---------------------------------------------------
 /*// H-TASK
 
@@ -87,4 +89,16 @@ function findLongestWord(str: string) {
 }
 
 console.log(findLongestWord("I came a from Uzbekistan!"));
+*/
+/*// K-TASK: 
+
+Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
+MASALAN: countVowels("string") return 1; 
+
+function countVowels(word: String): Number {
+    const vowels_arr = ["a", "e", "i", "o", "u"];
+    return word.split("").filter((v) => vowels_arr.includes(v)).length;
+}
+// console.log(countVowels("stringqiiiqoefoiqwobaonfoaucoqanwaiefnawc"));
+console.log(countVowels("string"));
 */
