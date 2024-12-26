@@ -40,7 +40,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 };
 
 restaurantController.processSignup = async (
-    req: AdminRequest, 
+    req: AdminRequest,
     res: Response
 ) => {
     try {

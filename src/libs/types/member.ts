@@ -40,3 +40,8 @@ export interface AdminRequest extends Request {
     member: Member;
     session: Session & { member: Member }
 }
+
+export interface AdminRequestSignup extends Request {
+    member: Member;
+    session: Session;
+}
