@@ -1,17 +1,16 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------")
-/**L-TASK: 
 
-Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
-MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc"; */
-function reverseSentence(sentence: string): string {
-    return sentence
-        .split(" ")
-        .map((word: string) => word.split("").reverse().join(""))
-        .join(" ");
+interface A {
+    string: string,
+    number: number
 }
 
-console.log(reverseSentence("we like coding!"));
+const a: A = {
+    string: "aa"
+}
+
+
 
 // ---------------------------------------------------
 /*// H-TASK
@@ -101,4 +100,17 @@ function countVowels(word: String): Number {
 }
 // console.log(countVowels("stringqiiiqoefoiqwobaonfoaucoqanwaiefnawc"));
 console.log(countVowels("string"));
+*/
+/*// L-TASK: 
+
+Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc"; 
+function reverseSentence(sentence: string): string {
+    return sentence
+        .split(" ")
+        .map((word: string) => word.split("").reverse().join(""))
+        .join(" ");
+}
+
+console.log(reverseSentence("we like coding!"));
 */
