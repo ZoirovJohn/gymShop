@@ -1,14 +1,6 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------")
 
-interface A {
-    string: string,
-    number: number
-}
-
-const a: A = {
-    string: "aa"
-}
 
 
 
