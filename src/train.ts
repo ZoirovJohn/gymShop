@@ -1,11 +1,18 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------")
+/** TASK M: 
 
+Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
+MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}]; */
 
+function getSquareNumbers(arr: number[]) {
+    return arr.map((ele: number) => ({ number: ele, square: ele ** 2 }));
+}
 
+console.log(getSquareNumbers([1, -4, 2]));
 
 // ---------------------------------------------------
-/*// H-TASK
+/** TASK H:
 
 function getPositive(arr: Array<number>) {
     return arr.filter(ele => ele > 0 ? ele : null).join("")
@@ -13,7 +20,7 @@ function getPositive(arr: Array<number>) {
 
 console.log(getPositive([1, -4, 2]));
 */
-/*// H2-TASK: 
+/** TASK H2:
 
 // Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
 // MASALAN: getDigits("m14i1t") return qiladi "141"
@@ -30,7 +37,7 @@ function getDigits(input: String) {
 
 console.log(getDigits("m14i1t"));
 */
-/*// I-TASK:
+/** TASK I:
 
 // Shunday function tuzing, u parametrdagi array ichida eng ko'p
 // takrorlangan raqamni topib qaytarsin.
@@ -59,7 +66,7 @@ function majorityElement(arr: number[]) {
 
 console.log(majorityElement([1, 2, 1, 9, 3, 4, 5, 4, 8, 4, 2, 4, 1, 4, 3, 4]));
 // console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); */
-/*// J-TASK:
+/** TASK J:
 
 Shunday function tuzing, u string qabul qilsin.
 Va string ichidagi eng uzun so'zni qaytarsin.
@@ -81,7 +88,7 @@ function findLongestWord(str: string) {
 
 console.log(findLongestWord("I came a from Uzbekistan!"));
 */
-/*// K-TASK: 
+/** TASK K:
 
 Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
 MASALAN: countVowels("string") return 1; 
@@ -93,7 +100,7 @@ function countVowels(word: String): Number {
 // console.log(countVowels("stringqiiiqoefoiqwobaonfoaucoqanwaiefnawc"));
 console.log(countVowels("string"));
 */
-/*// L-TASK: 
+/** TASK L: 
 
 Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
 MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc"; 
