@@ -1,18 +1,20 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/** TASK N: 
 
-Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
-MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;*/
+/** TASK-O:
 
-function palindromCheck(word: string) {
-  // const reversed_word = word.split("").reverse().join("");
-  // console.log(reversed_word)
-  return word.split("").reverse().join("") === word;
+Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
+MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45*/
+
+function calculateSumOfNumbers(arr: any) {
+  //   return word.split("").reverse().join("") === word;
+  return arr
+    .filter((ele: any) => typeof ele === "number" && !isNaN(ele))
+    .reduce((acc: number, value: number) => acc + value);
 }
 
-console.log(palindromCheck("dad"));
-// console.log(palindromCheck("asdfghjklkjhgfdsa"));
+console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+// console.log(calculateSumOfNumbers([10, "10", NaN, { son: 10 }, true, 35]));
 
 // ---------------------------------------------------
 /** TASK H:
@@ -126,4 +128,18 @@ function getSquareNumbers(arr: number[]) {
 }
 
 console.log(getSquareNumbers([1, -4, 2]));
+*/
+/** TASK N:
+
+Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+
+function palindromCheck(word: string) {
+    // const reversed_word = word.split("").reverse().join("");
+    // console.log(reversed_word)
+    return word.split("").reverse().join("") === word;
+  }
+  
+  console.log(palindromCheck("dad"));
+  // console.log(palindromCheck("asdfghjklkjhgfdsa"));
 */
