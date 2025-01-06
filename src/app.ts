@@ -38,7 +38,7 @@ app.use(
 
 app.use(function (req, res, next) {
   const sessionInstance = req.session as T;
-  //res.locals - browser variablelari
+  //res.locals - browser variablelari, global tarzda local variable yaratish ejsda ishlatishchun
   res.locals.member = sessionInstance.member;
   next();
 });

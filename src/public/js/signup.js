@@ -10,6 +10,8 @@ $(function () {
   fileTarget.on("change", function () {
     if (window.FileReader) {
       const uploadFile = $(this)[0].files[0];
+      console.log("uploadFile:this:", $(this));
+      console.log("uploadFile:files:", $(this)[0].files);
       const fileType = uploadFile["type"];
       const validImageType = ["image/jpg", "image/jpeg", "image/png"];
 
@@ -44,11 +46,9 @@ $(function () {
       alert("Please insert all required inputs!");
       return false;
     }
-
-    return true;
   }
 
-  const memberImage = $(".member-image").get(0).files[0]?.name
+  const memberImage = $(".member-image").get(0).files[0].name
     ? $(".member-image").get(0).files[0].name
     : null;
 
