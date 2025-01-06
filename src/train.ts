@@ -1,20 +1,26 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
+/**TASK P:
 
-/** TASK-O:
+Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
+MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] 
+*/
 
-Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
-MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45*/
-
-function calculateSumOfNumbers(arr: any) {
+function objectToArray(obj: any) {
   //   return word.split("").reverse().join("") === word;
-  return arr
-    .filter((ele: any) => typeof ele === "number" && !isNaN(ele))
-    .reduce((acc: number, value: number) => acc + value);
+  //   return arr
+  //     .filter((ele: any) => typeof ele === "number" && !isNaN(ele))
+  //     .reduce((acc: number, value: number) => acc + value);
+  const result: any[][] = [];
+  for (const [key, value] of Object.entries(obj)) {
+    // console.log(key);
+    // console.log(value);
+    result.push([key, value])
+  }
+  return result;
 }
 
-console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
-// console.log(calculateSumOfNumbers([10, "10", NaN, { son: 10 }, true, 35]));
+console.log(objectToArray({ a: 10, b: 20 }));
 
 // ---------------------------------------------------
 /** TASK H:
@@ -142,4 +148,19 @@ function palindromCheck(word: string) {
   
   console.log(palindromCheck("dad"));
   // console.log(palindromCheck("asdfghjklkjhgfdsa"));
+*/
+/** TASK O:
+
+Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
+MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+
+function calculateSumOfNumbers(arr: any) {
+    //   return word.split("").reverse().join("") === word;
+    return arr
+      .filter((ele: any) => typeof ele === "number" && !isNaN(ele))
+      .reduce((acc: number, value: number) => acc + value);
+  }
+  
+  console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+  // console.log(calculateSumOfNumbers([10, "10", NaN, { son: 10 }, true, 35]));
 */
