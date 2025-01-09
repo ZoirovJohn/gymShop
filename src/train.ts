@@ -1,26 +1,21 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK P:
+/**TASK-Q:
 
-Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
-MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] 
+Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false 
 */
 
-function objectToArray(obj: any) {
-  //   return word.split("").reverse().join("") === word;
-  //   return arr
-  //     .filter((ele: any) => typeof ele === "number" && !isNaN(ele))
-  //     .reduce((acc: number, value: number) => acc + value);
-  const result: any[][] = [];
-  for (const [key, value] of Object.entries(obj)) {
-    // console.log(key);
-    // console.log(value);
-    result.push([key, value])
+function hasProperty(obj: any, str: string) {
+  for(const key of Object.keys(obj)) {
+    if (key === str) return true;
   }
-  return result;
+  
+  return false;
 }
 
-console.log(objectToArray({ a: 10, b: 20 }));
+console.log(hasProperty({name: "BMW", model: "M3"}, "model"));
+console.log(hasProperty({name: "BMW", model: "M3"}, "year"));
 
 // ---------------------------------------------------
 /** TASK H:
@@ -163,4 +158,26 @@ function calculateSumOfNumbers(arr: any) {
   
   console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
   // console.log(calculateSumOfNumbers([10, "10", NaN, { son: 10 }, true, 35]));
+*/
+/** TASK P:
+
+Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
+MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] 
+
+
+function objectToArray(obj: any) {
+    //   return word.split("").reverse().join("") === word;
+    //   return arr
+    //     .filter((ele: any) => typeof ele === "number" && !isNaN(ele))
+    //     .reduce((acc: number, value: number) => acc + value);
+    const result: any[][] = [];
+    for (const [key, value] of Object.entries(obj)) {
+      // console.log(key);
+      // console.log(value);
+      result.push([key, value])
+    }
+    return result;
+  }
+  
+  console.log(objectToArray({ a: 10, b: 20 }));
 */

@@ -109,6 +109,7 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
   try {
     console.log("getUsers");
     const result = await memberService.getUsers();
+    // ??????????rsult degi id DB object id korinishdami yomi????????????
 
     res.render("users", { users: result });
   } catch (err) {
