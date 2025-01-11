@@ -1,21 +1,19 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-Q:
+/**TASK R
 
-Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
-MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false 
-*/
+Shunday function yozing, u string parametrga ega bo'lsin.
+Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
 
-function hasProperty(obj: any, str: string) {
-  for(const key of Object.keys(obj)) {
-    if (key === str) return true;
-  }
-  
-  return false;
+MASALAN: calculate("1 + 3"); return 4;
+1 + 3 = 4, shu sababli 4 natijani qaytarmoqda. */
+
+function calculate(str: string) {
+    return eval(str);
 }
 
-console.log(hasProperty({name: "BMW", model: "M3"}, "model"));
-console.log(hasProperty({name: "BMW", model: "M3"}, "year"));
+console.log(calculate("1 + 3"));
 
 // ---------------------------------------------------
 /** TASK H:
@@ -181,3 +179,21 @@ function objectToArray(obj: any) {
   
   console.log(objectToArray({ a: 10, b: 20 }));
 */
+/** TASK Q:
+
+Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false 
+
+
+function hasProperty(obj: any, str: string) {
+    for(const key of Object.keys(obj)) {
+      if (key === str) return true;
+    }
+    
+    return false;
+  }
+  
+  console.log(hasProperty({name: "BMW", model: "M3"}, "model"));
+  console.log(hasProperty({name: "BMW", model: "M3"}, "year"));
+*/
+  
