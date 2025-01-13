@@ -1,20 +1,23 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK R
+/**TASK-S:
 
-Shunday function yozing, u string parametrga ega bo'lsin.
-Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
-string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+MASALAN: missingNumber([3, 0, 1]) return 2 */
 
-MASALAN: calculate("1 + 3"); return 4;
-1 + 3 = 4, shu sababli 4 natijani qaytarmoqda. */
-
-function calculate(str: string) {
-    return eval(str);
+function missingNumber(str: number[]) {
+    const a = str.sort()
+    let num = a[0]
+    for (const ele of a) {
+        if (num !== ele) return num;
+        num ++;
+    }
 }
 
-console.log(calculate("1 + 3"));
-
+console.log(missingNumber([3, 0, 1]));
+// 3×(3+1)2−(−1)×02=623×(3+1)​ − 2(−1)×0​ =6
+// Mavjud yig'indi: 3+0+1=43+0+1=4
+// Farq: 6−4=26−4=2
 // ---------------------------------------------------
 /** TASK H:
 
@@ -196,4 +199,18 @@ function hasProperty(obj: any, str: string) {
   console.log(hasProperty({name: "BMW", model: "M3"}, "model"));
   console.log(hasProperty({name: "BMW", model: "M3"}, "year"));
 */
-  
+/** TASK R:
+
+Shunday function yozing, u string parametrga ega bo'lsin.
+Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+
+MASALAN: calculate("1 + 3"); return 4;
+1 + 3 = 4, shu sababli 4 natijani qaytarmoqda. 
+
+function calculate(str: string) {
+    return eval(str);
+}
+
+console.log(calculate("1 + 3"));
+*/
