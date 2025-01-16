@@ -1,23 +1,17 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-S:
+/**TASK-T:
 
-Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
-MASALAN: missingNumber([3, 0, 1]) return 2 */
+Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
+MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+*/
 
-function missingNumber(str: number[]) {
-    const a = str.sort()
-    let num = a[0]
-    for (const ele of a) {
-        if (num !== ele) return num;
-        num ++;
-    }
+function mergeSortedArrays(str1: number[], str2: number[]) {
+    return (str1.join("*") + "*" + str2.join("*")).split("*").map(Number).sort((a, b) => a - b);
+
 }
 
-console.log(missingNumber([3, 0, 1]));
-// 3×(3+1)2−(−1)×02=623×(3+1)​ − 2(−1)×0​ =6
-// Mavjud yig'indi: 3+0+1=43+0+1=4
-// Farq: 6−4=26−4=2
+console.log(mergeSortedArrays([0,3,4,31], [4,6,30]));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -213,4 +207,20 @@ function calculate(str: string) {
 }
 
 console.log(calculate("1 + 3"));
+*/
+/** TASK S:
+
+Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+MASALAN: missingNumber([3, 0, 1]) return 2 
+
+function missingNumber(str: number[]) {
+    const a = str.sort()
+    let num = a[0]
+    for (const ele of a) {
+        if (num !== ele) return num;
+        num ++;
+    }
+}
+
+console.log(missingNumber([3, 0, 1]));
 */
