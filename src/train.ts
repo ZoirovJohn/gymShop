@@ -1,17 +1,20 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-T:
+/**TASK-U:
 
-Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
-MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
+MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
 */
 
-function mergeSortedArrays(str1: number[], str2: number[]) {
-    return (str1.join("*") + "*" + str2.join("*")).split("*").map(Number).sort((a, b) => a - b);
+
+function sumOdds(num: number) {
+    return ((num-(num)%2)/2)
 
 }
 
-console.log(mergeSortedArrays([0,3,4,31], [4,6,30]));
+console.log(sumOdds(9));
+console.log(sumOdds(11));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -223,4 +226,17 @@ function missingNumber(str: number[]) {
 }
 
 console.log(missingNumber([3, 0, 1]));
+*/
+/** TASK-T:
+
+Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
+MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+
+
+function mergeSortedArrays(str1: number[], str2: number[]) {
+    return (str1.join("*") + "*" + str2.join("*")).split("*").map(Number).sort((a, b) => a - b);
+
+}
+
+console.log(mergeSortedArrays([0,3,4,31], [4,6,30]));
 */
