@@ -1,7 +1,7 @@
 /* A-TASK: 
 
 Shunday 2 parametrli function tuzing, hamda birinchi parametrdagi letterni ikkinchi parametrdagi sozdan qatnashga sonini return qilishi kerak boladi.
-MASALAN countLetter("e", "engineer") 3ni return qiladi. */
+MASALAN countLetter("e", "engineer") 3ni return qiladi. 
 
 function countLetter("e", "engineer") {
   const word = ["e", "n", "g", "i", "n", "e", "e", "r"];
@@ -14,6 +14,6 @@ function countLetter("e", "engineer") {
     }
   }
   return result;
-}
+}*/
 
 console.log(countLetter("e", "engineer"));

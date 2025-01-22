@@ -1,20 +1,26 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-U:
+/**TASK-V:
 
-Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
-MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
 
 */
 
+function countChars(str: string) {
+  const result: Record<string, number> = {};
+  for (let ele of str) {
+    if (result[ele]) {
+      result[ele]++;
+    } else {
+      result[ele] = 1;
+    }
+  }
 
-function sumOdds(num: number) {
-    return ((num-(num)%2)/2)
-
+  return result;
 }
 
-console.log(sumOdds(9));
-console.log(sumOdds(11));
+console.log(countChars("hello"));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -227,7 +233,7 @@ function missingNumber(str: number[]) {
 
 console.log(missingNumber([3, 0, 1]));
 */
-/** TASK-T:
+/** TASK T:
 
 Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
 MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
@@ -239,4 +245,20 @@ function mergeSortedArrays(str1: number[], str2: number[]) {
 }
 
 console.log(mergeSortedArrays([0,3,4,31], [4,6,30]));
+*/
+/** TASK U:
+
+Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
+MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+
+
+
+function sumOdds(num: number) {
+    return ((num-(num)%2)/2)
+
+}
+
+console.log(sumOdds(9));
+console.log(sumOdds(11));
 */
