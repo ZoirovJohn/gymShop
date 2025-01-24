@@ -33,6 +33,8 @@ class MemberService {
   }
 
   public async login(input: LoginInput): Promise<Member> {
+    console.log("login2");
+    
     // TODO: Consider member status later
     const member = await this.memberModel
       .findOne(
