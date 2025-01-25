@@ -1,26 +1,21 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-V:
+/**TASK-W:
 
-Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
-MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
+MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
 
 */
 
-function countChars(str: string) {
-  const result: Record<string, number> = {};
-  for (let ele of str) {
-    if (result[ele]) {
-      result[ele]++;
-    } else {
-      result[ele] = 1;
-    }
+function chunkArray(arr: number[], num: number) {
+  let result: number[][] = [];
+  while (arr.length) {
+    result.push(arr.splice(0, 3));
   }
-
   return result;
 }
 
-console.log(countChars("hello"));
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -261,4 +256,26 @@ function sumOdds(num: number) {
 
 console.log(sumOdds(9));
 console.log(sumOdds(11));
+*/
+/** TASK V:
+
+Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+
+
+function countChars(str: string) {
+    const result: Record<string, number> = {};
+    for (let ele of str) {
+      if (result[ele]) {
+        result[ele]++;
+      } else {
+        result[ele] = 1;
+      }
+    }
+  
+    return result;
+  }
+  
+  console.log(countChars("hello"));
 */
