@@ -34,7 +34,7 @@ class MemberService {
 
   public async login(input: LoginInput): Promise<Member> {
     console.log("login2");
-    
+
     // TODO: Consider member status later
     const member = await this.memberModel
       .findOne(
@@ -61,6 +61,17 @@ class MemberService {
 
     //lean() - db dan olingan mantiq qkncalik ozgartrish imkoniyatini
     return await this.memberModel.findById(member._id).lean().exec();
+  }
+
+  public async getMemberDetail(member: Member): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    const result = await this.memberModel
+      .findOne({ _id: memberId, memberStatus: MemberStatus.ACTIVE })
+      .exec();
+
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
   }
 
   /** SSR */
