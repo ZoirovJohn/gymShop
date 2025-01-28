@@ -1,21 +1,46 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-W:
+/**TASK-X
 
-Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
-MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
+Shunday function yozing, uni object va string parametrlari bo'lsin.
+Bu function, birinchi object parametri tarkibida, kalit sifatida ikkinchi string parametri
+necha marotaba takrorlanganlini sanab qaytarsin.
+
+Eslatma => Nested object'lar ham sanalsin
+
+MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+Yuqoridagi misolda, birinchi argument object, ikkinchi argument 'model'.
+Funktsiya, shu ikkinchi argument 'model', birinchi argument object
+tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqda
 
 */
 
-function chunkArray(arr: number[], num: number) {
-  let result: number[][] = [];
-  while (arr.length) {
-    result.push(arr.splice(0, 3));
+function countOccurrences(obj: Record<string, any>, str: string) {
+  let count = 0;
+
+  function insideFunc(object: Record<string, any>) {
+    for (const key in object) {
+      if (key === str) {
+        count++;
+      }
+
+      if (typeof object[key] === "object" && object[key] !== null) {
+        insideFunc(object[key]);
+      }
+    }
   }
-  return result;
+
+  insideFunc(obj);
+  return count;
 }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+console.log(
+  countOccurrences(
+    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+    "model"
+  )
+);
 // ---------------------------------------------------
 /** TASK H:
 
@@ -278,4 +303,21 @@ function countChars(str: string) {
   }
   
   console.log(countChars("hello"));
+*/
+/**TASK-W:
+
+Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
+MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
+
+
+
+function chunkArray(arr: number[], num: number) {
+  let result: number[][] = [];
+  while (arr.length) {
+    result.push(arr.splice(0, 3));
+  }
+  return result;
+}
+
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 */
