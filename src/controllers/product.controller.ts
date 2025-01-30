@@ -35,7 +35,6 @@ productController.getProducts = async (req: Request, res: Response) => {
   }
 };
 
-/** SSR */
 productController.getProduct = async (req: ExtendedRequest, res: Response) => {
   try {
     console.log("getProduct");
@@ -53,6 +52,8 @@ productController.getProduct = async (req: ExtendedRequest, res: Response) => {
     else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
+
+/** SSR */
 
 productController.getAllProducts = async (req: Request, res: Response) => {
   try {
