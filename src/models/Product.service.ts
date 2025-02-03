@@ -56,7 +56,7 @@ class ProductService {
   public async getProduct(
     memberId: ObjectId | null,
     id: string
-  ): Promise<void> {
+  ): Promise<Product> {
     const productId = shapeIntoMongooseObjectId(id);
 
     let result = await this.productModel
