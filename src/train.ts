@@ -1,25 +1,26 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK Y
+/**TASK G:
 
-Shunday function yozing, uni 2'ta array parametri bo'lsin.
-Bu function ikkala arrayda ham ishtirok etgan bir xil
-qiymatlarni yagona arrayga joylab qaytarsin.
+Yagona parametrga ega function tuzing.
+Va bu function parametr orqalik integer ma'lumot turlariga ega bo'lgan bir arrayni qabul qilsin.
+Ushbu function bizga arrayning tarkibidagi birinchi eng katta qiymatning indeksini qaytarsin.
 
-MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
-
-Yuqoridagi misolda, argument sifatida berilayotgan array'larda
-o'xshash sonlar mavjud. Function'ning vazifasi esa ana shu
-ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
-joylab return qilmoqda.
+MASALAN: getHighestIndex([5, 21, 12, 21 ,8]); return qiladi 1 sonini
+Yuqoridagi misolda, birinchi indeksda 21 joylashgan.
+Va bu 21 soni arrayning tarkibidagi birinchi eng katta son hisobladi va bizga uning indeksi 1 qaytadi.
 
 */
 
-function findIntersection(arr1: number[], arr2: number[]) {
-  return arr1.filter((num) => arr2.includes(num));
+function getHighestIndex(arr: number[]) {
+  const highest_num = [...arr].sort((a, b) => b - a)[0];
+
+  for (let ele of arr) {
+    if (ele === highest_num) return arr.indexOf(ele);
+  }
 }
 
-console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+console.log(getHighestIndex([5, 21, 12, 21, 8]));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -341,4 +342,25 @@ console.log(
     "model"
   )
 );
+*/
+/**TASK Y
+
+Shunday function yozing, uni 2'ta array parametri bo'lsin.
+Bu function ikkala arrayda ham ishtirok etgan bir xil
+qiymatlarni yagona arrayga joylab qaytarsin.
+
+MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+Yuqoridagi misolda, argument sifatida berilayotgan array'larda
+o'xshash sonlar mavjud. Function'ning vazifasi esa ana shu
+ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
+joylab return qilmoqda.
+
+
+
+function findIntersection(arr1: number[], arr2: number[]) {
+  return arr1.filter((num) => arr2.includes(num));
+}
+
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));
 */
