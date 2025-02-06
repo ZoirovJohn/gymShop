@@ -1,26 +1,16 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK G:
+/**TASK-ZB:
 
-Yagona parametrga ega function tuzing.
-Va bu function parametr orqalik integer ma'lumot turlariga ega bo'lgan bir arrayni qabul qilsin.
-Ushbu function bizga arrayning tarkibidagi birinchi eng katta qiymatning indeksini qaytarsin.
-
-MASALAN: getHighestIndex([5, 21, 12, 21 ,8]); return qiladi 1 sonini
-Yuqoridagi misolda, birinchi indeksda 21 joylashgan.
-Va bu 21 soni arrayning tarkibidagi birinchi eng katta son hisobladi va bizga uning indeksi 1 qaytadi.
-
+Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
+MASALAN: randomBetween(30, 50) return 45
 */
 
-function getHighestIndex(arr: number[]) {
-  const highest_num = [...arr].sort((a, b) => b - a)[0];
-
-  for (let ele of arr) {
-    if (ele === highest_num) return arr.indexOf(ele);
-  }
+function randomBetween(num1: number, num2: number) {
+  return num1 + 1 + Math.floor(Math.random() * (num2 - num1 - 1));
 }
 
-console.log(getHighestIndex([5, 21, 12, 21, 8]));
+console.log(randomBetween(30, 50));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -363,4 +353,26 @@ function findIntersection(arr1: number[], arr2: number[]) {
 }
 
 console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+*/
+/**TASK G:
+
+Yagona parametrga ega function tuzing.
+Va bu function parametr orqalik integer ma'lumot turlariga ega bo'lgan bir arrayni qabul qilsin.
+Ushbu function bizga arrayning tarkibidagi birinchi eng katta qiymatning indeksini qaytarsin.
+
+MASALAN: getHighestIndex([5, 21, 12, 21 ,8]); return qiladi 1 sonini
+Yuqoridagi misolda, birinchi indeksda 21 joylashgan.
+Va bu 21 soni arrayning tarkibidagi birinchi eng katta son hisobladi va bizga uning indeksi 1 qaytadi.
+
+
+
+function getHighestIndex(arr: number[]) {
+  const highest_num = [...arr].sort((a, b) => b - a)[0];
+
+  for (let ele of arr) {
+    if (ele === highest_num) return arr.indexOf(ele);
+  }
+}
+
+console.log(getHighestIndex([5, 21, 12, 21, 8]));
 */
