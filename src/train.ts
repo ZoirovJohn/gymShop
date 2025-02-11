@@ -1,25 +1,26 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK ZC
+/**TASK ZD
 
-Selisy (°C) shkalasi bo'yicha raqam qabul qilib, uni
-Ferenhayt (°F) shkalisaga o'zgaritib beradigan function yozing.
+Shunday function yozing. Bu function o'ziga, parametr sifatida
+birinchi oddiy number, keyin yagona array va uchinchi bo'lib oddiy number
+qabul qilsin. Berilgan birinchi number parametr, arrayning tarkibida indeks bo'yicha hisoblanib,
+shu aniqlangan indeksni uchinchi number parametr bilan alashtirib, natija sifatida
+yangilangan arrayni qaytarsin.
 
-MASALAN: celsiusToFahrenheit(0) return 32;
-MASALAN: celsiusToFahrenheit(10) return 50;
+MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2];
 
-Yuqoridagi misolda, 0°C, 32°F'ga teng.
-Yoki 10 gradus Selsiy, 50 Farenhaytga teng.
-
-°C va °F => Tempraturani o'lchashda ishlatiladigan o'lchov birligi.
+Yuqoridagi misolda, birinchi raqam bu '1' va arrayning '1'chi indeksi bu 3.
+Bizning function uchinchi berilgan '2' raqamini shu '3' bilan almashtirib,
+yangilangan arrayni qaytarmoqda.
 */
 
-function celsiusToFahrenheit(celsius: number) {
-  return celsius * 9 / 5 + 32
+function changeNumberInArray(index: number, arr: any[], num: number) {
+  arr[index] = num;
+  return arr;
 }
 
-console.log(celsiusToFahrenheit(0));
-console.log(celsiusToFahrenheit(10));
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -396,4 +397,25 @@ function randomBetween(num1: number, num2: number) {
 }
 
 console.log(randomBetween(30, 50));
+*/
+/**TASK ZC
+
+Selisy (°C) shkalasi bo'yicha raqam qabul qilib, uni
+Ferenhayt (°F) shkalisaga o'zgaritib beradigan function yozing.
+
+MASALAN: celsiusToFahrenheit(0) return 32;
+MASALAN: celsiusToFahrenheit(10) return 50;
+
+Yuqoridagi misolda, 0°C, 32°F'ga teng.
+Yoki 10 gradus Selsiy, 50 Farenhaytga teng.
+
+°C va °F => Tempraturani o'lchashda ishlatiladigan o'lchov birligi.
+
+
+function celsiusToFahrenheit(celsius: number) {
+  return celsius * 9 / 5 + 32
+}
+
+console.log(celsiusToFahrenheit(0));
+console.log(celsiusToFahrenheit(10));
 */
