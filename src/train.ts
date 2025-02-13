@@ -1,26 +1,31 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK ZD
+/**TASK ZE
 
-Shunday function yozing. Bu function o'ziga, parametr sifatida
-birinchi oddiy number, keyin yagona array va uchinchi bo'lib oddiy number
-qabul qilsin. Berilgan birinchi number parametr, arrayning tarkibida indeks bo'yicha hisoblanib,
-shu aniqlangan indeksni uchinchi number parametr bilan alashtirib, natija sifatida
-yangilangan arrayni qaytarsin.
+Shunday function yozing, uniygona string parametri mavjud bo'lsin.
+Bu function string tarkibidagi takrorlangan xarflarni olib tashlab qolgan
+qiymatni qaytarsin.
 
-MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2];
+MASALAN: removeDuplicate('stringg') return 'string'
 
-Yuqoridagi misolda, birinchi raqam bu '1' va arrayning '1'chi indeksi bu 3.
-Bizning function uchinchi berilgan '2' raqamini shu '3' bilan almashtirib,
-yangilangan arrayni qaytarmoqda.
+Yuqoridagi misolda, 'stringg' so'zi tarkibida 'g' harfi takrorlanmoqda
+funktsiyamiz shu bittadan ortiq takrorlangan harfni olib natijani
+qaytarmoqda.
 */
 
-function changeNumberInArray(index: number, arr: any[], num: number) {
-  arr[index] = num;
-  return arr;
+function removeDuplicate(word: string) {
+  let result = "";
+  let exist = "";
+  for (const ele of word) {
+    if (!exist.includes(ele)) {
+      result += ele;
+      exist += ele;
+    }
+  }
+  return result;
 }
 
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+console.log(removeDuplicate("stringg"));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -418,4 +423,26 @@ function celsiusToFahrenheit(celsius: number) {
 
 console.log(celsiusToFahrenheit(0));
 console.log(celsiusToFahrenheit(10));
+*/
+/**TASK ZD
+
+Shunday function yozing. Bu function o'ziga, parametr sifatida
+birinchi oddiy number, keyin yagona array va uchinchi bo'lib oddiy number
+qabul qilsin. Berilgan birinchi number parametr, arrayning tarkibida indeks bo'yicha hisoblanib,
+shu aniqlangan indeksni uchinchi number parametr bilan alashtirib, natija sifatida
+yangilangan arrayni qaytarsin.
+
+MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2];
+
+Yuqoridagi misolda, birinchi raqam bu '1' va arrayning '1'chi indeksi bu 3.
+Bizning function uchinchi berilgan '2' raqamini shu '3' bilan almashtirib,
+yangilangan arrayni qaytarmoqda.
+
+
+function changeNumberInArray(index: number, arr: any[], num: number) {
+  arr[index] = num;
+  return arr;
+}
+
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
 */
