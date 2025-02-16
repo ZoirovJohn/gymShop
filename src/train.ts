@@ -1,31 +1,20 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK ZE
+/**TASK-ZF:
 
-Shunday function yozing, uniygona string parametri mavjud bo'lsin.
-Bu function string tarkibidagi takrorlangan xarflarni olib tashlab qolgan
-qiymatni qaytarsin.
-
-MASALAN: removeDuplicate('stringg') return 'string'
-
-Yuqoridagi misolda, 'stringg' so'zi tarkibida 'g' harfi takrorlanmoqda
-funktsiyamiz shu bittadan ortiq takrorlangan harfni olib natijani
-qaytarmoqda.
+Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
 */
 
-function removeDuplicate(word: string) {
-  let result = "";
-  let exist = "";
-  for (const ele of word) {
-    if (!exist.includes(ele)) {
-      result += ele;
-      exist += ele;
-    }
-  }
-  return result;
+function capitalizeWords(str: string) {
+  const splittedWord = str.split(" ");
+  const afterUppercasing = splittedWord.map((ele) =>
+    ele.length > 3 ? ele.charAt(0).toUpperCase() + ele.slice(1) : ele
+  );
+  return afterUppercasing.join(" ");
 }
 
-console.log(removeDuplicate("stringg"));
+console.log(capitalizeWords("name should be a string"));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -445,4 +434,31 @@ function changeNumberInArray(index: number, arr: any[], num: number) {
 }
 
 console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+*/
+/**TASK ZE
+
+Shunday function yozing, uniygona string parametri mavjud bo'lsin.
+Bu function string tarkibidagi takrorlangan xarflarni olib tashlab qolgan
+qiymatni qaytarsin.
+
+MASALAN: removeDuplicate('stringg') return 'string'
+
+Yuqoridagi misolda, 'stringg' so'zi tarkibida 'g' harfi takrorlanmoqda
+funktsiyamiz shu bittadan ortiq takrorlangan harfni olib natijani
+qaytarmoqda.
+
+
+function removeDuplicate(word: string) {
+  let result = "";
+  let exist = "";
+  for (const ele of word) {
+    if (!exist.includes(ele)) {
+      result += ele;
+      exist += ele;
+    }
+  }
+  return result;
+}
+
+console.log(removeDuplicate("stringg"));
 */
