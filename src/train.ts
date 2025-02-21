@@ -1,22 +1,14 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-ZF:
+/**TASK-ZG:
 
-Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
-MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
+MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
 */
 
 function capitalizeWords(str: string) {
-  const list = [1, 2, 3, 4]
-  const find_arrr = list.find(ele => ele >= 3 ? ele : null)
-  const map_arrr = list.map(ele => ele >= 3 ? ele : null)
-  const filter_arrr = list.filter(ele => ele >= 3 ? ele : null)
-  console.log("find_arrr qaytgan: ", find_arrr);
-  console.log("map_arrr qaytgan: ", map_arrr);
-  console.log("filter_arrr qaytgan: ", filter_arrr);
-  console.log("original arr: ", list);
-  
-  return list
+  const result = str.split(" ").join("_");
+  return result;
 }
 
 console.log(capitalizeWords("name should be a string"));
@@ -479,6 +471,27 @@ function capitalizeWords(str: string) {
     ele.length > 3 ? ele.charAt(0).toUpperCase() + ele.slice(1) : ele
   );
   return afterUppercasing.join(" ");
+}
+
+console.log(capitalizeWords("name should be a string"));
+*/
+/**TASK-ZF:
+
+Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+
+
+function capitalizeWords(str: string) {
+  const list = [1, 2, 3, 4]
+  const find_arrr = list.find(ele => ele >= 3 ? ele : null)
+  const map_arrr = list.map(ele => ele >= 3 ? ele : null)
+  const filter_arrr = list.filter(ele => ele >= 3 ? ele : null)
+  console.log("find_arrr qaytgan: ", find_arrr);
+  console.log("map_arrr qaytgan: ", map_arrr);
+  console.log("filter_arrr qaytgan: ", filter_arrr);
+  console.log("original arr: ", list);
+  
+  return list
 }
 
 console.log(capitalizeWords("name should be a string"));
