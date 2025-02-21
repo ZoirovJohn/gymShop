@@ -66,7 +66,8 @@ class ProductService {
       })
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-
+      console.log("memberId:", memberId);
+      
     if (memberId) {
       // Check Existence
       const input: ViewInput = {

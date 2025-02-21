@@ -17,6 +17,8 @@ class ViewService {
 
   public async insertMemberView(input: ViewInput): Promise<View> {
     try {
+      console.log("input:", input);
+
       return await this.viewModel.create(input);
     } catch (err) {
       console.log("ERROR, model:insertMemberView:", err);
