@@ -1,17 +1,26 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-ZG:
+/**TASK-ZH:
 
-Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
-MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
+Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
+MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
 */
 
-function capitalizeWords(str: string) {
-  const result = str.split(" ").join("_");
-  return result;
+function findDisappearedNumbers(arr: number[]): number[] {
+  let maxNum = Math.max(...arr);
+  let numSet = new Set(arr);
+  let missingNumbers: number[] = [];
+
+  for (let i = 1; i <= maxNum; i++) {
+      if (!numSet.has(i)) {
+          missingNumbers.push(i);
+      }
+  }
+
+  return missingNumbers;
 }
 
-console.log(capitalizeWords("name should be a string"));
+console.log(findDisappearedNumbers([1, 3, 4, 7]));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -492,6 +501,19 @@ function capitalizeWords(str: string) {
   console.log("original arr: ", list);
   
   return list
+}
+
+console.log(capitalizeWords("name should be a string"));
+*/
+/**TASK-ZG:
+
+Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
+MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
+
+
+function capitalizeWords(str: string) {
+  const result = str.split(" ").join("_");
+  return result;
 }
 
 console.log(capitalizeWords("name should be a string"));
