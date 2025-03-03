@@ -1,26 +1,20 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-ZH:
+/**TASK-ZJ:
 
-Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
-MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
+Shunday function yozing, u berilgan arrayni ichidagi numberlarni qiymatini hisoblab qaytarsin.
+MASALAN: reduceNestedArray([1, [1, 2, [4]]]) return 8
 */
 
-function findDisappearedNumbers(arr: number[]): number[] {
-  let maxNum = Math.max(...arr);
-  let numSet = new Set(arr);
-  let missingNumbers: number[] = [];
+function reduceNestedArray(arr: any[]): number {
+  return arr.reduce(
+    (sum, item) => sum + (Array.isArray(item) ? reduceNestedArray(item) : item),
+    0
+  );
 
-  for (let i = 1; i <= maxNum; i++) {
-      if (!numSet.has(i)) {
-          missingNumbers.push(i);
-      }
-  }
-
-  return missingNumbers;
 }
 
-console.log(findDisappearedNumbers([1, 3, 4, 7]));
+console.log(reduceNestedArray([1, [1, 2, [4]]]));
 // ---------------------------------------------------
 /** TASK H:
 
@@ -517,4 +511,26 @@ function capitalizeWords(str: string) {
 }
 
 console.log(capitalizeWords("name should be a string"));
+*/
+/**TASK-ZH:
+
+Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
+MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
+
+
+function findDisappearedNumbers(arr: number[]): number[] {
+  let maxNum = Math.max(...arr);
+  let numSet = new Set(arr);
+  let missingNumbers: number[] = [];
+
+  for (let i = 1; i <= maxNum; i++) {
+      if (!numSet.has(i)) {
+          missingNumbers.push(i);
+      }
+  }
+
+  return missingNumbers;
+}
+
+console.log(findDisappearedNumbers([1, 3, 4, 7]));
 */
