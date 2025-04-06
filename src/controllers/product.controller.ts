@@ -15,9 +15,10 @@ productController.getProducts = async (req: Request, res: Response) => {
     console.log("getProducts");
     // const query = req.query;
     // const params = req.params;
+    console.log("req.query:", req.query);
     const { page, limit, order, productCollection, search } = req.query;
-    console.log("order:", order);
-    console.log("order:", typeof order);
+    // console.log("order:", order);
+    // console.log("order:", typeof order);
     
     const inquiry: ProductInquiry = {
       order: String(order),
