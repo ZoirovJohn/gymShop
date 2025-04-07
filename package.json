@@ -1,7 +1,7 @@
 {
-  "name": "gymshop",
+  "name": "gusto",
   "version": "1.0.0",
-  "description": "This is GymShop project backend",
+  "description": "This is Gusto project backend",
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node src/server.ts",
