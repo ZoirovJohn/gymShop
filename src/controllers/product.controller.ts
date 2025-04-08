@@ -19,14 +19,22 @@ productController.getProducts = async (req: Request, res: Response) => {
     const { page, limit, order, productCollection, search } = req.query;
     // console.log("order:", order);
     // console.log("order:", typeof order);
-    
+
     const inquiry: ProductInquiry = {
       order: String(order),
       page: Number(page),
       limit: Number(limit),
     };
     if (productCollection)
-      inquiry.productCollection = productCollection as ProductCollection;
+      if (String(productCollection) === ProductCollection.JUNKFOOD) {
+        inquiry.productCollection = [
+          ProductCollection.BURGER,
+          ProductCollection.PIZZA,
+          ProductCollection.SANDWICH,
+        ];
+      } else if (String(productCollection) !== ProductCollection.ALL) {
+        inquiry.productCollection = productCollection as ProductCollection;
+      }
     if (search) inquiry.search = String(search);
 
     const result = await productService.getProducts(inquiry);

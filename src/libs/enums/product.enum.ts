@@ -29,4 +29,6 @@ export enum ProductCollection {
   DESSERT = "DESSERT",
   DRINK = "DRINK",
   OTHER = "OTHER",
+  JUNKFOOD = "JUNKFOOD",
+  ALL = "ALL",
 }
