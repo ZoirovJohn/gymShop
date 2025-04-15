@@ -26,15 +26,7 @@ productController.getProducts = async (req: Request, res: Response) => {
       limit: Number(limit),
     };
     if (productCollection)
-      if (String(productCollection) === ProductCollection.JUNKFOOD) {
-        inquiry.productCollection = [
-          ProductCollection.BURGER,
-          ProductCollection.PIZZA,
-          ProductCollection.SANDWICH,
-        ];
-      } else if (String(productCollection) !== ProductCollection.ALL) {
-        inquiry.productCollection = productCollection as ProductCollection;
-      }
+      inquiry.productCollection = productCollection as ProductCollection;
     if (search) inquiry.search = String(search);
 
     const result = await productService.getProducts(inquiry);
