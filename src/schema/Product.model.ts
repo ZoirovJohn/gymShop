@@ -22,6 +22,10 @@ const productSchema = new Schema(
       type: String,
       required: true,
     },
+    productIngredient: {
+      type: String,
+      required: true,
+    },
     productPrice: {
       type: Number,
       required: true,
@@ -58,7 +62,7 @@ const productSchema = new Schema(
 );
 
 productSchema.index(
-  { productName: 1, productSize: 1, productVolume: 1 },
+  { productName: 1, productIngredient: 1, productSize: 1, productVolume: 1 },
   { unique: true }
 );
 export default mongoose.model("Product", productSchema);

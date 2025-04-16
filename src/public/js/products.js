@@ -45,6 +45,7 @@ $(function () {
 function validateForm() {
   const productName = $(".product-name").val(),
     productPrice = $(".product-price").val(),
+    productIngredient = $(".product-ingredient").val(),
     productLeftCount = $(".product-left-count").val(),
     productCollection = $(".product-collection").val(),
     productDesc = $(".product-desc").val(),
@@ -52,6 +53,7 @@ function validateForm() {
 
   if (
     productName === "" ||
+    productIngredient === "" ||
     productPrice === "" ||
     productLeftCount === "" ||
     productCollection === "" ||
