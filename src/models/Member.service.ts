@@ -135,13 +135,10 @@ class MemberService {
     const exist = await this.memberModel
       .findOne({ memberType: "RESTAURANT" })
       .exec(); // findone dan kn boshqa query quyishga ruxsat bermedi
-    // console.log("exist:", exist);
     if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
 
     const salt = await bcrypt.genSalt();
-    console.log("salt:", salt);
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
-    console.log("hash:", input.memberPassword);
 
     try {
       const result = await this.memberModel.create(input); // db da inputni create qiladi
@@ -161,7 +158,6 @@ class MemberService {
         { memberNick: 1, memberPassword: 1 }
       )
       .exec();
-    console.log("member:", member);
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
 
     // hash qiganda, qande salt bn hash qilingani yoziladi. Kn compareda usha salt orqali topvaladi original datani

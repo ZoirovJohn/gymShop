@@ -6,6 +6,8 @@ import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import { MORGAN_FORMAT } from "./libs/config";
+import { Server as SocketIOServer } from "socket.io";
+import http from "http";
 
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
@@ -32,7 +34,6 @@ app.use(morgan(MORGAN_FORMAT));
 app.use(
   session({
     secret: String(process.env.SESSION_SECRET),
-
     cookie: {
       maxAge: 1000 * 3600 * 6, // 6 hours
     },
@@ -44,7 +45,6 @@ app.use(
 
 app.use(function (req, res, next) {
   const sessionInstance = req.session as T;
-  //res.locals - browser variablelari, global tarzda local variable yaratish ejsda ishlatishchun
   res.locals.member = sessionInstance.member;
   next();
 });
@@ -56,4 +56,23 @@ app.set("view engine", "ejs");
 app.use("/admin", routerAdmin); // BSSR: EJS
 app.use("/", router); // SPA: REACT
 
-export default app; // esma js
+const server = http.createServer(app);
+const io = new SocketIOServer(server, {
+  cors: {
+    origin: true,
+    credentials: true,
+  },
+});
+
+let summaryClient = 0;
+io.on("connection", (socket) => {
+  summaryClient++;
+  console.log("Connection & total ", summaryClient);
+
+  socket.on("disconnect", () => {
+    summaryClient--;
+    console.log("Disconnection & total ", summaryClient);
+  });
+});
+
+export default server; // esma js

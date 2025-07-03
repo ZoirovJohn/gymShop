@@ -42,8 +42,6 @@ class ProductService {
         ? { [inquiry.order]: 1 }
         : { [inquiry.order]: -1 };
 
-    console.log("sort:", sort);
-
     const result = await this.productModel
       .aggregate([
         { $match: match },
@@ -52,7 +50,6 @@ class ProductService {
         { $limit: inquiry.limit * 1 },
       ])
       .exec();
-    console.log("result:", result);
 
     if (!result) throw new Errors(HttpCode.OK, Message.NO_DATA_FOUND);
 
@@ -74,7 +71,6 @@ class ProductService {
       })
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-    console.log("memberId:", memberId);
 
     if (memberId) {
       // Check Existence
@@ -84,8 +80,6 @@ class ProductService {
         viewGroup: ViewGroup.PRODUCT,
       };
       const existView = await this.viewService.checkViewExistence(input);
-
-      console.log("exist:", !!existView);
 
       if (!existView) {
         //Insert View

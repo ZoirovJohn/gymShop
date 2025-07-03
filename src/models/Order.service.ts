@@ -43,7 +43,6 @@ class OrderService {
       });
 
       const orderId = newOrder._id;
-      console.log("orderId:", orderId);
 
       await this.recordOrderItem(orderId, input);
       return newOrder;

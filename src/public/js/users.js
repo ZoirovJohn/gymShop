@@ -8,7 +8,6 @@ $(function () {
     axios
       .post("/admin/user/edit", { _id: id, memberStatus: memberStatus })
       .then((response) => {
-        console.log("Response:", response);
         const result = response.data;
 
         if (result.data) {
