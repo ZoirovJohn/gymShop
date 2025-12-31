@@ -21,6 +21,7 @@ const store = new MongoDBStore({
 
 /* 1-ENTRANCE */
 const app = express();
+app.set("trust proxy", 1);
 // console.log("_dirname:", __dirname);
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("./uploads"));
@@ -35,11 +36,14 @@ app.use(
   session({
     secret: String(process.env.SESSION_SECRET),
     cookie: {
-      maxAge: 1000 * 3600 * 6, // 6 hours
+      secure: process.env.NODE_ENV === "production", // ✅ HTTPS only in prod
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 1000 * 3600 * 6,
     },
     store: store,
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
   })
 );
 
